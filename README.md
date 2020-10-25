@@ -1,6 +1,7 @@
 # Time Series Repository
 
 <img src="https://i.pinimg.com/originals/11/a9/63/11a963f85279cc50685be7e67a803c78.jpg">
+
 ## Goals
 
 - why, when, and how to employ forecasting methods for predicting temporal events, i.e. events that occur over time. 
