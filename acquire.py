@@ -127,9 +127,9 @@ def new_total_sales_by_stores_data(cached=True):
     #retrieving all sales
     sales = get_sales_data(cached)
     #merging stores and sales by store id
-    df = sales.merge(stores, left_on='store', right_on='store_id')
+    df = sales.merge(stores, left_on='store', right_on='store_id').drop(columns = {'store'})
     #merging previous df and items by item id
-    newdf = df.merge(items, left_on = 'item', right_on = 'item_id')
+    newdf = df.merge(items, left_on = 'item', right_on = 'item_id').drop(columns = {'item'})
     #writing it to a csv for quicker access
     newdf.to_csv('total_sales_by_store_df.csv')
     return newdf
