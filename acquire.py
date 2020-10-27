@@ -146,6 +146,8 @@ def get_total_sales_by_stores_data(cached=False):
     return df
 
 
+################################
+
 def get_germany_power_data():
     '''
     This function retrieves the Open Power Systems Data 
