@@ -37,18 +37,22 @@ def prepare_power_data():
     '''
     #reads in the data and saves it as a datframe
     df = get_germany_power_data()
+    #lowercase all of the columns in the dataframe
+    df.columns = [column.lower() for column in df]
     #changes 'Date' from object to date_time
-    df.Date = pd.to_datetime(df.Date, format='%Y %m %d')
+    df.date = pd.to_datetime(df.date, format='%Y %m %d')
     #plots all the numeric columns in the dataframe
     plot_hist_num(df)
     #sets 'Date' as the Index
-    df = df.set_index("Date").sort_index()
+    df = df.set_index("date").sort_index()
     #creates a 'month' column using the index
     df['month'] = df.index.month
     #creates a 'year' column using the index
     df['year'] = df.index.year
     #fills all the nulls with zeros
     df = df.fillna(0)
+    #adding addition of wind and solar
+    df['wind_and_solar'] = df.wind + df.solar
     return df
 
 def plot_hist(df, col, label):
