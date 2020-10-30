@@ -17,7 +17,7 @@ def prepare_store_data():
     #changes sales_date from object to date_time
     df.sale_date = pd.to_datetime(df.sale_date, format='%a, %d %b %Y %H:%M:%S %Z')
     #creates a histogram of 'sale_amount'
-    plot_hist(df, 'sale_amount', 'Total Items')
+    #plot_hist(df, 'sale_amount', 'Total Items')
     #creates a histogram of 'item_price'
     plot_hist(df, 'item_price', 'Item Price')
     #sets the index as 'sale_date'
@@ -42,7 +42,7 @@ def prepare_power_data():
     #changes 'Date' from object to date_time
     df.date = pd.to_datetime(df.date, format='%Y %m %d')
     #plots all the numeric columns in the dataframe
-    plot_hist_num(df)
+    #plot_hist_num(df)
     #sets 'Date' as the Index
     df = df.set_index("date").sort_index()
     #creates a 'month' column using the index
